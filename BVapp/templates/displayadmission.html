@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'Indexpage.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Admission details</title>
+</head>
+<body>
+   <div>
+     <h2 style="font-size: 36px; font-weight: bold; color: rgb(86, 84, 84); margin-bottom: 20px; text-align: center;font-family:  Arial, Helvetica, sans-serif; ">
+                Course Details
+            </h2><br><br><br>
+   </div>
+
+<div class="card w-100">
+
+              <div class="card-body p-4">
+
+                <h5 class="card-title fw-semibold mb-4">Admission Details</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0"> Name </h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Course Name </h6>
+                        </th>
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Mobile Number</h6>
+                        </th>
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Email</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Message</h6>
+                        </th>
+
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Delete</h6>
+                        </th>
+
+
+
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for i in data %}
+
+                      <tr>
+
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{i.name}}</h6>
+
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{i.course}}</p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{i.number}}</p>
+                        </td>
+
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{i.email}}</p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{i.message}}</p>
+                        </td>
+
+
+
+                        <td>
+                              <a href="{% url 'deleteadmission' Aid=i.id %}">
+                              <button type="button" class="btn btn-outline-danger m-1">Delete</button>                              </a>
+                            </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      </tr>
+                     {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

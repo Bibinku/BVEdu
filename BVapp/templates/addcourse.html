@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% extends 'Indexpage.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>couredetails</title>
+</head>
+<body>
+ <section>
+     <div class="container-fluid">
+
+        <div class="container-fluid">
+            <h2 style="font-size: 36px; font-weight: bold; color: rgb(86, 84, 84); margin-bottom: 20px; text-align: center;font-family:  Arial, Helvetica, sans-serif; ">
+                Add Course Details
+            </h2><br><br><br>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Add Course Details</h5>
+              <div class="card">
+                <div class="card-body">
+                    <form class="forms-sample" method="post" action="{% url 'savecourse' %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Course Name </label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" required aria-describedby="emailHelp" name="name">
+                    </div><br>
+
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Time</label>
+                      <input type="text" class="form-control" id="exampleInputPsword1" placeholder="Time" required name="time">
+                    </div><br>
+
+
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Price</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Price" required name="price">
+                    </div><br>
+
+
+
+
+
+                     <div class="form-group">
+                      <label for="exampleInputEmail1" class="form-label"> Description </label>
+                      <textarea  class="form-control" id="exampleTextarea1" rows="4" required placeholder="Description" name="description"></textarea>
+                    </div><br>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" class="form-label"> Description 2 </label>
+                      <textarea  class="form-control" id="exampleTextarea2" rows="4" required placeholder="Description" name="description2"></textarea>
+                    </div><br>
+
+                    <div class="form-group">
+
+                       <label for="exampleInputPassword1" class="form-label"> Image </label>
+
+                      <input type="file" class="form-control" placeholder=" Image"  required name="image">
+                    </div><br><br>
+
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+ </section>
+
+</body>
+</html>
+{% endblock %}

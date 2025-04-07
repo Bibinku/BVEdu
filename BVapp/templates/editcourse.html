@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'Indexpage.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Course Details</h5>
+              <div class="card">
+                <div class="card-body">
+                  <form class="forms-sample"  method="post" action="{% url 'updatecousre' Uid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Course Name </label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name"  aria-describedby="emailHelp" required name="name" value="{{data.name}}">
+                    </div><br>
+
+                   <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Time</label>
+                      <input type="text" class="form-control" id="exampleInutPassword1" placeholder="Time" name="time" required  value="{{data.time}}">
+                    </div><br>
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Price</label>
+                      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price" required  value="{{data.price}}">
+                    </div><br>
+
+
+                     <div class="form-group">
+                      <label for="exampleInputEmail1" class="form-label"> Description </label>
+                      <textarea  class="form-control" id="examplTextarea1" rows="4" placeholder="Description" required name="description">{{data.description}}</textarea>
+                    </div><br>
+
+                      <div class="form-group">
+                      <label for="exampleInputEmail1" class="form-label"> Description 2 </label>
+                      <textarea  class="form-control" id="examplTextarea2" rows="4" placeholder="Description" required name="description2">{{data.description2}}</textarea>
+                    </div><br>
+
+                    <div class="form-group">
+
+                       <label for="exampleInputPassword1" class="form-label">Image</label>
+
+                      <input type="file" class="form-control" placeholder=" Image" name="image" required value="{{data.image}}">
+                    </div><br><br>
+
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+</body>
+</html>
+{% endblock %}
